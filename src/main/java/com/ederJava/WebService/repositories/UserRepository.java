@@ -6,6 +6,4 @@ import com.ederJava.WebService.entity.User;
 
 public interface UserRepository extends JpaRepository<User, Long>{
 	
-	
-
 }
