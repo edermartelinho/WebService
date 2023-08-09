@@ -14,18 +14,18 @@ public class StandardError implements Serializable{
 	private Integer status;
 	private String error;
 	private String message;
-	private String patth;
+	private String path;
 	
 	public StandardError () {
 	}
 
-	public StandardError(Instant timestamp, Integer status, String error, String message, String patth) {
+	public StandardError(Instant timestamp, Integer status, String error, String message, String path) {
 		super();
 		this.timestamp = timestamp;
 		this.status = status;
 		this.error = error;
 		this.message = message;
-		this.patth = patth;
+		this.path = path;
 	}
 
 	public Instant getTimestamp() {
@@ -61,11 +61,11 @@ public class StandardError implements Serializable{
 	}
 
 	public String getPatth() {
-		return patth;
+		return path;
 	}
 
-	public void setPatth(String patth) {
-		this.patth = patth;
+	public void setPatth(String path) {
+		this.path = path;
 	}
      
 	
