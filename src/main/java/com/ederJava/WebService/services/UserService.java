@@ -18,6 +18,7 @@ import com.ederJava.WebService.resource.exceptions.StandardError;
 import com.ederJava.WebService.services.exception.DatabaseException;
 import com.ederJava.WebService.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 
 @Service
@@ -68,9 +69,13 @@ public class UserService {
 	}
 
 	public User update(Long id, User obj) {
+		try {
 		User entity = repository.getReferenceById(id);
 		updateDate(entity, obj);
 		return repository.save(entity);
+		}catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException(id);
+		}
 	}
 
 	private void updateDate(User entity, User obj) {
